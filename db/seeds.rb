@@ -16,5 +16,5 @@
 @collection3 = Collection.create name: 'Subjects'
 
 [@user, @user2, @user3].each do |n|
-    n.questions.create title: Faker::Lorem::words(3), description: Faker::Lorem::paragraphs, answer: Faker::Lorem::paragraphs, collection_id: [1,2,3].sample
+    n.questions.create title: "#{Faker::Lorem::words(3)}", description: "#{Faker::Lorem::paragraphs}", answer: "#{Faker::Lorem::paragraphs}", collection_id: [@collection.id, @collection2.id, @collection3.id].sample
 end
