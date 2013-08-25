@@ -17,7 +17,8 @@ gem 'activeadmin', '0.6.0'
 gem "meta_search",    '>= 1.1.0.pre'
 gem 'friendly_id', '4.0.10.1'
 gem 'kaminari', '0.14.1'
-gem "cancan"
+gem "cancan", '1.6.10'
+gem 'holder_rails', '2.0.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
