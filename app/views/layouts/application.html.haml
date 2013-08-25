@@ -28,19 +28,23 @@
             -if current_user
               %li.dropdown
                 %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                  = "#{current_user.full_name.blank? ? current_user.email : current_user.email}"
+                  = user_name(current_user)
                   %b.caret
                 %ul.dropdown-menu
                   - if current_user
+                    %li=link_to 'View Profile', current_user
                     %li=link_to 'Edit Profile', edit_user_path(current_user)
                     %li=link_to 'Sign Out', destroy_user_session_path, method: :delete
     .navbar
       .container
         %ul.nav.nav-pills
-          %li.pull-right.active=link_to 'Ask A Question', new_question_path, class: ''
-          %li.pull-right=link_to 'Unanswered', unanswered_questions_path, class: ''
+          %li.pull-right=link_to 'Ask A Question', new_question_path, class: 'btn-warning'
+          %li.pull-right{class: "#{controller.action_name.eql?('unanswered') ? 'active' : ''}"}
+            =link_to unanswered_questions_path, class: '' do
+              %span.badge.pull-right= "#{@unanswered.size}"
+              Unanswered
           %li.pull-right=link_to 'Users', users_path, class: ''
-          %li.pull-right=link_to 'Questions', questions_path, class: ''
+          %li.pull-right{class: "#{!controller.action_name.eql?('unanswered') && controller.controller_name.eql?('questions') ? 'active' : ''}"}=link_to 'Questions', questions_path, class: ''
     .container
       .row
         .col-xs-12

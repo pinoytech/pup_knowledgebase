@@ -6,6 +6,7 @@ class Ability
     can :read, :all
     can :new, Question
     can :unanswered, Question
+    can :search, Question
     can :create, Question
     can :update, Question do |question|
       question.try(:user) == user

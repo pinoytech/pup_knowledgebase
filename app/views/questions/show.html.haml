@@ -1,4 +1,6 @@
 .row
+  .col-xs-2
+    
   .col-xs-10
     %h2= @question.title
     %p
@@ -6,6 +8,11 @@
       = link_to user_name(@question.try(:user)), @question.try(:user)
     %h3 Description
     = h @question.description
+    - if @question.answer.blank?
+      %h3 No answers here, my friend
+    - else
+      %h3 Answer
+      = h @question.answer
 
 .row
   .col-xs-2

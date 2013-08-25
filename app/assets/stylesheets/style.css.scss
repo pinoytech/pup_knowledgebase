@@ -1,5 +1,25 @@
 /*** navbar ***/
 
+.navbar {
+    .container{
+        ul {
+            &.nav-pills {
+                li {
+                    &:hover {
+                        a {
+                            &.btn-warning {
+                                color: #ffffff;
+                                background-color: #f0ad4e;
+                                border-color: #eea236;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 .navbar-brand {
 }
 

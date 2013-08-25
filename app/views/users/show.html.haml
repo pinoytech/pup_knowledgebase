@@ -2,10 +2,10 @@
   .col-xs-12
     .media
       = link_to @user, class: 'pull-left' do
-        = image_tag @user.avatar.url(:medium), class: 'media-object'
+        = @user.avatar_file_name.nil? ? image_tag('holder.js/200x200') : image_tag(@user.avatar.url(:medium), class: 'media-object')
       .media-body
         %h4.media-heading= user_name @user
-        %p Description
+        = h @user.description
 .row
   .col-xs-12
     %h2=user_name @user

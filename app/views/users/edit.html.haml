@@ -17,6 +17,8 @@
             = f.text_field :first_name, :autofocus => true, class: 'form-control', placeholder: 'Enter First Name'
             = f.label :last_name, 'Last Name'
             = f.text_field :last_name, :autofocus => true, class: 'form-control', placeholder: 'Enter Last Name'
+            = f.label :description, 'Description'
+            = f.text_area :description, :autofocus => true, class: 'form-control', placeholder: 'Enter Description', rows: 5
             = f.label :email, 'Email'
             = f.text_field :email, :autofocus => true, class: 'form-control', placeholder: 'Enter Email'
           .form-group
