@@ -16,8 +16,9 @@
     %h3 Description
     = h @question.description
     .clearfix
-    %p
-      - unless @question.attachment_file_name.nil?
+    - unless @question.attachment_file_name.nil?
+      %h3 Attachment
+      %p
         = image_tag @question.attachment.url(:large)
     - if @question.answer.blank?
       %h3 No answers here, my friend

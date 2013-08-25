@@ -1,17 +1,27 @@
 .row
   .col-xs-12
-    - if @question.errors.any?
-      .alert.alert-danger
-        %h4= "#{pluralize(@question.errors.count, "error")}:"
-        %ul
-          - @question.errors.full_messages.each do |msg|
-            %li= msg
-    %h3 Sign in
-    = form_for(@question, role: 'form') do |f|
-      .form-group
-        = f.label :title
-        = f.text_field :title, :autofocus => true, class: 'form-control', placeholder: 'Enter Question'
-      .form-group
-        = f.label :password
-        = f.password_field :password, :autofocus => true, class: 'form-control', placeholder: 'Enter Answer'
-      = f.submit "Save", class: 'btn btn-primary btn-default'
+    .row
+      .col-xs-12
+        %h3 Edit Your Question
+    .row
+      .col-xs-12
+        - if @question.errors.any?
+          .alert.alert-danger
+            %h4= "#{pluralize(@question.errors.count, "error")}:"
+            %ul
+              - @question.errors.full_messages.each do |msg|
+                %li= msg
+        = form_for(@question, role: 'form') do |f|
+          .form-group
+            = f.label :title, 'Question'
+            = f.text_field :title, :autofocus => true, class: 'form-control', placeholder: 'Enter Question'
+            = f.label :description, 'Description'
+            = f.text_area :description, :autofocus => true, class: 'form-control', placeholder: 'Enter Description', rows: 5
+          - unless @question.attachment_file_name.nil?
+            .form-group
+              = f.label :attachment, 'Attachment', class: 'control-label'
+              %p.form-control-static= image_tag @question.attachment.url(:large)
+          .form-group
+            = f.label :attachment
+            = f.file_field :attachment, class: 'form-control'
+          = f.submit "Post Your Question", class: 'btn btn-primary btn-default'
