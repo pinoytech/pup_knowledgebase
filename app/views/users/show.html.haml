@@ -3,5 +3,21 @@
     %h2=@user.full_name
 .row
   .col-xs-12
-    %h2 All Designs from the Artist
-  = render 'loop', designs: @user.designs
+    %h2="#{@user.full_name.blank? ? 'User #' + @user.id.to_s : @user.full_name}"
+    .panel.panel-default
+      .panel-heading Questions
+      .panel-body
+        - if @user.questions.any?
+          %p This user has been very busy indeed...
+        - else
+          %p This user is enlightened. No questions here!
+      %table.table.table-condensed
+        %tr
+          %th #
+          %th Question
+          %th Date
+        %tr
+          - @user.questions.each do |question|
+            %td{rowspan: '2'}= question.id
+            %td= link_to question.title, question
+            %td= question.created_at.strftime("%B %d, %Y")

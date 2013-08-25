@@ -1,12 +1,16 @@
-%p#notice= notice
+.row
+  .col-xs-10
+    %h2= @question.title
+    %h3 Description
+    = h @question.description
 
-%p
-  %b Title:
-  = @question.title
-%p
-  %b Answer:
-  = @question.answer
+.row
+  .col-xs-2
+    - if can? :update, @question
+      = link_to 'Edit Question', edit_question_path(@question), class: 'btn btn-warning btn-sm'
+  .col-xs-1
+    - if can? :destroy, @question
+      = link_to 'Destroy', @question, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger btn-sm'
+  .col-xs-2
 
-= link_to 'Edit', edit_question_path(@question)
-\|
-= link_to 'Back', questions_path
+

@@ -13,8 +13,11 @@ gem 'haml-rails', '0.4'
 gem "paperclip", '3.5.1'
 gem "thumbs_up", "0.6.5"
 
-gem 'activeadmin'
+gem 'activeadmin', '0.6.0'
 gem "meta_search",    '>= 1.1.0.pre'
+gem 'friendly_id', '4.0.10.1'
+gem 'kaminari', '0.14.1'
+gem "cancan"
 
 # Gems used only for assets and not required
 # in production environments by default.

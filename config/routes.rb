@@ -1,11 +1,17 @@
 Tshirt::Application.routes.draw do
 
 
+  get "page/about", as: 'about'
+
   root :to => 'home#index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  resources :questions
+  resources :questions do
+    collection do
+        get 'search'
+    end
+  end
 
 
   resources :collections

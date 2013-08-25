@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Bootstrap 101 Template
+    %title PUP - Knowledgebase
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -17,39 +17,34 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          = link_to 'MARO', root_path, class: 'navbar-brand'
+          = link_to 'PUP Knowledgebase', root_path, class: 'navbar-brand'
         .navbar-collapse.collapse
           %ul.nav.navbar-nav
-            %li.active
-              %a{:href => "#"} Home
-            %li
-              %a{:href => "#about"} About
-            %li
-              %a{:href => "#contact"} Contact
-            %li.dropdown
-              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                Dropdown
-                %b.caret
-              %ul.dropdown-menu
-                %li
-                  %a{:href => "#"} Action
-                %li
-                  %a{:href => "#"} Another action
-                %li
-                  %a{:href => "#"} Something else here
-                %li.divider
-                %li.dropdown-header Nav header
-                %li
-                  %a{:href => "#"} Separated link
-                %li
-                  %a{:href => "#"} One more separated link
+            %li=link_to "About", about_path
           %ul.nav.navbar-nav.navbar-right
-            - if current_user
-              %li=link_to 'Sign Out', destroy_user_session_path, method: :delete
-            - else
+            - unless current_user
               %li=link_to 'Sign Up', new_user_registration_path
               %li=link_to 'Sign In', new_user_session_path
+            -if current_user
+              %li.dropdown
+                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  = "#{current_user.full_name.blank? ? current_user.email : current_user.email}"
+                  %b.caret
+                %ul.dropdown-menu
+                  - if current_user
+                    %li=link_to 'Edit Profile', edit_user_path(current_user)
+                    %li=link_to 'Sign Out', destroy_user_session_path, method: :delete
+          =form_for :question, url: new_question_path, method: :get, html: {class: 'navbar-form navbar-left', role: 'search'} do |f|
+            =submit_tag 'As A Question', class: 'btn btn-default btn-primary'
     .container
+      .row
+        .col-xs-12
+          - if flash.notice
+            .alert.alert-success
+              =flash.notice
+          - if flash.alert
+            .alert.alert-danger
+              =flash.alert
       = yield
     .footer
       .container

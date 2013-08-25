@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :designs
+  has_many :questions
 
   def full_name
     "#{first_name} #{last_name}"

@@ -1,14 +1,15 @@
-.jumbotron
-  .container
-    %h2 PUP Knowledgebase!
-    %p Type in a keyword to search the knowledgebase
+.row
+  .col-xs-12
     =form_tag search_questions_path, method: 'get', role: 'form', class: 'form-inline' do |f|
-      .form-group.col-lg-8
+      .form-group
         =label_tag :keyword, 'Keyword', class: 'sr-only', for: 'keyword'
         =text_field_tag :keyword, params[:keyword], placeholder: 'Enter Keyword', class: "input-lg form-control"
       =submit_tag 'Search', class: 'btn btn-default btn-lg'
+    %span.help-block Type in a keyword to search the knowledgebase
 
 .row.home
   .col-xs-12
-    %h3 Fresh from the Oven
+    %h3
+      Results from Keyword,
+      ="'#{params[:keyword]}'"
     =render 'loop', questions: @questions
