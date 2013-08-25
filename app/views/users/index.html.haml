@@ -4,7 +4,7 @@
       .col-xs-4
         .media
           = link_to user, class: 'pull-left' do
-            = user.avatar_file_name.nil? ? image_tag('holder.js/100x100') : image_tag(user.avatar.url(:small), class: 'media-object')
+            = user.avatar_file_name.nil? ? holder_tag('100x100', 'Unavailable') : image_tag(user.avatar.url(:small), class: 'media-object')
           .media-body
             %h4.media-heading= user_name user
             = h truncate(user.description)

@@ -2,3 +2,6 @@
   .col-xs-12
     %h3 Questions
   =render 'loop', questions: @questions
+.row.home
+  .col-xs-12
+    =paginate @questions

@@ -19,6 +19,7 @@ gem 'friendly_id', '4.0.10.1'
 gem 'kaminari', '0.14.1'
 gem "cancan", '1.6.10'
 gem 'holder_rails', '2.0.0'
+gem 'faker', '1.2.0'
 
 # Gems used only for assets and not required
 # in production environments by default.

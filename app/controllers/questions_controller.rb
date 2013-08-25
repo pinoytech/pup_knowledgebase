@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.order('id DESC')
+    @questions = Question.order('id DESC').page(params[:page]).per(20)
 
     respond_to do |format|
       format.html # index.html.erb

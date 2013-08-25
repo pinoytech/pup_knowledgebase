@@ -12,3 +12,7 @@
   .col-xs-12
     %h3 Fresh from the Oven
   =render 'loop', questions: @questions
+
+.row.home
+  .col-xs-12
+    =paginate @questions

@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
     :small => "100x100>"
   }
 
+  scope :founders, order('id ASC').limit(3)
+
   def full_name
     "#{first_name} #{last_name}"
   end

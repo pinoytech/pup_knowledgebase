@@ -8,3 +8,14 @@
 .row.home
   .col-xs-12
     %h3 About
+    %p PUP Knowledgebase is a nice knowledgebase :p
+    - @users.each do |user|
+      .media
+        = link_to user, class: 'pull-left' do
+          = user.avatar_file_name.nil? ? holder_tag('200x200', 'User\'s Avatar in Unavailable') : image_tag(user.avatar.url(:medium), class: 'media-object')
+        .media-body
+          %h4.media-heading= user_name user
+          = h user.description
+          %br
+          - if can? :update, user
+            = link_to 'Update Information', edit_user_path(user), class: 'btn btn-warning btn-sm'
