@@ -1,0 +1,11 @@
+.row
+  -@users.in_groups_of(4, false) do |user_group|
+    - user_group.each do |user|
+      .col-xs-4
+        .media
+          = link_to user, class: 'pull-left' do
+            = user.avatar_file_name.nil? ? image_tag('holder.js/100x100') : image_tag(user.avatar.url(:small), class: 'media-object')
+          .media-body
+            %h4.media-heading= user_name user
+            = h truncate(user.description)
+    .clearfix
