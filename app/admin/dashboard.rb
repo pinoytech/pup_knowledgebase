@@ -15,7 +15,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Recent Questions" do
           ul do
             Question.recent(5).map do |question|
-              li link_to(question.name, admin_question_path(question))
+              li link_to(question.title, admin_question_path(question))
             end
           end
         end

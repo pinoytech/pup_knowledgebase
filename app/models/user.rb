@@ -11,10 +11,13 @@ class User < ActiveRecord::Base
     :first_name, :last_name, :avatar, :description
   # attr_accessible :title, :body
 
+  acts_as_voter
+
   has_many :designs
   has_many :questions
   has_attached_file :avatar, :styles => {
-    :medium => "200x200>"
+    :medium => "200x200>",
+    :small => "100x100>"
   }
 
   def full_name

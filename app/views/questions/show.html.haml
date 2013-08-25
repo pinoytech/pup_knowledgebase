@@ -1,26 +1,28 @@
 .row
-  .col-xs-2
-    
-  .col-xs-10
-    %h2= @question.title
+  .col-xs-1
+    #vote_status.list-group
+      = render 'voteable_status', question: @question
+  .col-xs-11
+    %h2
+      = @question.title
     %p
       by
       = link_to user_name(@question.try(:user)), @question.try(:user)
+    %p
+      - if can? :update, @question
+        = link_to 'Edit Question', edit_question_path(@question), class: 'btn btn-warning btn-sm'
+      - if can? :destroy, @question
+        = link_to 'Destroy', @question, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger btn-sm'
     %h3 Description
     = h @question.description
+    .clearfix
+    %p
+      - unless @question.attachment_file_name.nil?
+        = image_tag @question.attachment.url(:large)
     - if @question.answer.blank?
       %h3 No answers here, my friend
     - else
       %h3 Answer
       = h @question.answer
-
-.row
-  .col-xs-2
-    - if can? :update, @question
-      = link_to 'Edit Question', edit_question_path(@question), class: 'btn btn-warning btn-sm'
-  .col-xs-1
-    - if can? :destroy, @question
-      = link_to 'Destroy', @question, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger btn-sm'
-  .col-xs-2
 
 

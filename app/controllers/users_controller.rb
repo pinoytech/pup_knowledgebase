@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     redirect_to root_url, alert: 'User does not Exist'
   end
 
+  def index
+    @users = User.all
+  end
+
   def show
     # @user = User.find(params[:id])
   end

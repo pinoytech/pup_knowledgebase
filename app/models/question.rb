@@ -8,7 +8,7 @@ class Question < ActiveRecord::Base
   validates :title, :presence => {:message => 'Question can\'t be blank'}
   validates :description, presence: true
 
-  has_attached_file :attachment
+  has_attached_file :attachment, styles: {large: "700x700#"}
   friendly_id :title, use: :history
 
   scope :unanswered, where("answer IS NULL")

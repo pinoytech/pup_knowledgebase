@@ -4,11 +4,28 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    # @questions = Question.all
+    @questions = Question.order('id DESC')
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @questions }
+    end
+  end
+
+  def downvote
+    @question = Question.find(params[:id])
+    begin
+      current_user.vote_against @question unless current_user.questions.include? @question
+    rescue ActiveRecord::RecordInvalid
+      render 'already_voted'
+    end
+  end
+
+  def upvote
+    begin
+      current_user.vote_for @question unless current_user.questions.include? @question
+    rescue ActiveRecord::RecordInvalid
+      render 'already_voted'
     end
   end
 

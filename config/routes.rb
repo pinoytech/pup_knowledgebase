@@ -12,6 +12,10 @@ Tshirt::Application.routes.draw do
         get 'search'
         get 'unanswered'
     end
+    member do
+        get 'downvote'
+        get 'upvote'
+    end
   end
 
 

@@ -6,9 +6,13 @@
       .media-body
         %h4.media-heading= user_name @user
         = h @user.description
+        %br
+        - if can? :update, @user
+          = link_to 'Update Information', edit_user_path(@user), class: 'btn btn-warning btn-sm'
+
 .row
   .col-xs-12
-    %h2=user_name @user
+    %h2
     .panel.panel-default
       .panel-heading Questions
       .panel-body

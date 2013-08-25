@@ -20,6 +20,25 @@
     }
 }
 
+.list-group {
+  a {
+    &.list-group-item {
+      cursor: default
+    }
+  }
+}
+
+.home {
+    .question {
+        h2 {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            height: 50px;
+            line-height: 50px;
+        }
+    }
+}
+
 .navbar-brand {
 }
 

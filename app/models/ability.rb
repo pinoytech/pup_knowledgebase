@@ -6,6 +6,8 @@ class Ability
     can :read, :all
     can :new, Question
     can :unanswered, Question
+    can :upvote, Question
+    can :downvote, Question
     can :search, Question
     can :create, Question
     can :update, Question do |question|
