@@ -1,5 +1,5 @@
 <% if current_user.questions.include? @question %>
   alert("You cannot vote on your own Question")
 <% else %>
-  $('#vote_status').html("<%=j render 'vote_status', question: @question %>")
+  $('#vote_status').html("<%=j render 'voteable_status', question: @question %>")
 <% end %>
