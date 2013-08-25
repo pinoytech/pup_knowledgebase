@@ -1,15 +1,19 @@
 class QuestionsController < ApplicationController
-  skip_before_filter :authenticate_user!, only: [:index, :search, :show]
+  skip_before_filter :authenticate_user!, only: [:index, :search, :show, :unanswered]
   load_and_authorize_resource
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+    # @questions = Question.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @questions }
     end
+  end
+
+  def unanswered
+    @questions = Question.unanswered
   end
 
   def search

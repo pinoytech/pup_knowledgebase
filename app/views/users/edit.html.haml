@@ -1,0 +1,28 @@
+.row
+  .col-xs-12
+    .row
+      .col-xs-12
+        %h3 Update Your Information
+    .row
+      .col-xs-8
+        - if @user.errors.any?
+          .alert.alert-danger
+            %h4= "#{pluralize(@user.errors.count, "error")}:"
+            %ul
+              - @user.errors.full_messages.each do |msg|
+                %li= msg
+        = form_for(@user, role: 'form') do |f|
+          .form-group
+            = f.label :first_name, 'First Name'
+            = f.text_field :first_name, :autofocus => true, class: 'form-control', placeholder: 'Enter First Name'
+            = f.label :last_name, 'Last Name'
+            = f.text_field :last_name, :autofocus => true, class: 'form-control', placeholder: 'Enter Last Name'
+            = f.label :email, 'Email'
+            = f.text_field :email, :autofocus => true, class: 'form-control', placeholder: 'Enter Email'
+          .form-group
+            = f.label :avatar
+            = f.file_field :avatar, class: 'form-control'
+          = f.submit "Update Your Information", class: 'btn btn-primary btn-default'
+      .col-xs-4
+        %h4 Any reason for this?
+        %p This absolutely does nothing. We just want your information. bwahahah.

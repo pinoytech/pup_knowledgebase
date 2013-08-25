@@ -5,12 +5,16 @@ class Ability
     user ||= User.new
     can :read, :all
     can :new, Question
+    can :unanswered, Question
     can :create, Question
     can :update, Question do |question|
       question.try(:user) == user
     end
     can :destroy, Question do |question|
       question.try(:user) == user
+    end
+    can :update, User do |user_to_edit|
+      user_to_edit == user
     end
     # Define abilities for the passed in user here. For example:
     #

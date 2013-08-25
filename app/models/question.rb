@@ -11,6 +11,7 @@ class Question < ActiveRecord::Base
   has_attached_file :attachment
   friendly_id :title, use: :history
 
+  scope :unanswered, where("answer IS NULL")
   scope :recent, lambda{|limit| order("id DESC").limit(limit)}
   scope :search, lambda{|keyword| where('title LIKE ? ', "%#{keyword}%")}
 end

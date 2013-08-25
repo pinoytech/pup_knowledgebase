@@ -1,9 +1,14 @@
 .row
   .col-xs-12
-    %h2=@user.full_name
+    .media
+      = link_to @user, class: 'pull-left' do
+        = image_tag @user.avatar.url(:medium), class: 'media-object'
+      .media-body
+        %h4.media-heading= user_name @user
+        %p Description
 .row
   .col-xs-12
-    %h2="#{@user.full_name.blank? ? 'User #' + @user.id.to_s : @user.full_name}"
+    %h2=user_name @user
     .panel.panel-default
       .panel-heading Questions
       .panel-body
@@ -16,8 +21,8 @@
           %th #
           %th Question
           %th Date
-        %tr
-          - @user.questions.each do |question|
-            %td{rowspan: '2'}= question.id
+        - @user.questions.each do |question|
+          %tr
+            %td= question.id
             %td= link_to question.title, question
             %td= question.created_at.strftime("%B %d, %Y")
