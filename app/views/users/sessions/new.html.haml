@@ -1,0 +1,25 @@
+.row
+  .col-xs-8
+    %h2 Sign in to Maro
+    %p
+      Aliquam dignissim tincidunt aliquet. Mauris iaculis, elit sit amet
+      faucibus dignissim, odio dui tempus metus, vitae vulputate felis mi at
+      magna. Nulla rhoncus odio et posuere imperdiet. Suspendisse sagittis
+      eros sit amet felis feugiat, eget tempor tortor commodo. In suscipit
+      bibendum nunc at interdum.
+  .col-xs-4
+    %h3 Sign in
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name), role: 'form') do |f|
+      .form-group
+        = f.label :email
+        = f.email_field :email, :autofocus => true, class: 'form-control', placeholder: 'Enter Email'
+      .form-group
+        = f.label :password
+        = f.password_field :password, :autofocus => true, class: 'form-control', placeholder: 'Password'
+      - if devise_mapping.rememberable?
+        .checkbox
+          %label
+            = f.check_box :remember_me
+            = f.label :remember_me
+      = f.submit "Sign in", class: 'btn btn-primary btn-default'
+    = render "users/shared/links"

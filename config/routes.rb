@@ -1,0 +1,19 @@
+Tshirt::Application.routes.draw do
+
+
+  root :to => 'home#index'
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
+  resources :questions
+
+
+  resources :collections
+
+  resources :designs
+
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
+  ActiveAdmin.routes(self)
+
+  resources :users
+end

@@ -1,0 +1,10 @@
+.jumbotron
+  .container
+    %h1 Hello, world!
+    %p ...
+    %p=link_to 'Learn More', 'javascript:void(0)', class: 'btn btn-primary btn-lg'
+
+.row
+  .col-xs-12
+    %h3 Fresh from the studio
+  = render 'loop', designs: @designs

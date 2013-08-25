@@ -1,0 +1,7 @@
+.col-xs-3.grid_cell
+  .design
+    =link_to design_path(design) do
+      =image_tag design.image.url(:medium)
+  .sample.hidden
+    =link_to design_path(design) do
+      =image_tag design.image.url(:medium)

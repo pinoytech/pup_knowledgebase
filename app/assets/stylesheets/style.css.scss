@@ -1,0 +1,32 @@
+/*** product ***/
+
+.product_page {
+    h3 {
+        &.name {
+            text-transform: uppercase;
+        }
+    }
+}
+
+.footer {
+    margin: {
+        top: 100px;
+    }
+}
+
+
+/*** utilities ***/
+
+.grid_cell {
+    margin: {
+        bottom: 20px;
+    }
+    .design {
+    }
+    .sample {
+    }
+}
+
+.hidden {
+    display: none;
+}

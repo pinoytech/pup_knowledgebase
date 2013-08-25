@@ -1,0 +1,18 @@
+.row
+  .col-xs-7
+    %h2 Sign in to Maro
+    %p
+      Aliquam dignissim tincidunt aliquet. Mauris iaculis, elit sit amet
+      faucibus dignissim, odio dui tempus metus, vitae vulputate felis mi at
+      magna. Nulla rhoncus odio et posuere imperdiet. Suspendisse sagittis
+      eros sit amet felis feugiat, eget tempor tortor commodo. In suscipit
+      bibendum nunc at interdum.
+  .col-xs-5
+    %h3=@design.name
+    .by
+      by
+      =link_to @design.user.full_name, @design.user
+.row
+  .col-xs-12
+    %h2 More from Artist
+  = render 'loop', designs: @design.user.designs.reject{|d| d == @design}
