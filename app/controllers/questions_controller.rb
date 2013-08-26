@@ -30,11 +30,11 @@ class QuestionsController < ApplicationController
   end
 
   def unanswered
-    @questions = Question.unanswered
+    @questions = Question.unanswered.page(params[:page]).per(20)
   end
 
   def search
-    @questions = Question.search(params[:keyword])
+    @questions = Question.search(params[:keyword]).page(params[:page]).per(20)
   end
 
   # GET /questions/1

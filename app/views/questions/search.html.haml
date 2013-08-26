@@ -4,7 +4,7 @@
       .form-group
         =label_tag :keyword, 'Keyword', class: 'sr-only', for: 'keyword'
         =text_field_tag :keyword, params[:keyword], placeholder: 'Enter Keyword', class: "input-lg form-control"
-      =submit_tag 'Search', class: 'btn btn-default btn-lg'
+      =submit_tag 'Search', class: 'btn btn-default btn-lg', name: nil
     %span.help-block Type in a keyword to search the knowledgebase
 
 .row.home
@@ -13,3 +13,6 @@
       Results from Keyword,
       ="'#{params[:keyword]}'"
     =render 'loop', questions: @questions
+.row.home
+  .col-xs-12
+    =paginate @questions

@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   }
 
   scope :founders, order('id ASC').limit(3)
+  scope :random, order("RAND()").limit(1)
 
   def full_name
     "#{first_name} #{last_name}"
