@@ -1,11 +1,12 @@
 .row
-  -@users.in_groups_of(4, false) do |user_group|
+  -@users.in_groups_of(3, false) do |user_group|
     - user_group.each do |user|
       .col-xs-4
         .media
           = link_to user, class: 'pull-left' do
             = user.avatar_file_name.nil? ? holder_tag('100x100', 'Unavailable') : image_tag(user.avatar.url(:small), class: 'media-object')
           .media-body
-            %h4.media-heading= user_name user
+            %h4.media-heading= link_to user_name(user), user
+            %small= "#{pluralize(user.questions.size, 'Question')}"
             = h truncate(user.description)
     .clearfix

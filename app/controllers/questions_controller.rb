@@ -40,7 +40,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
-    # @question = Question.find(params[:id])
+    # @question = Question.find(params[:id], include: :user)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -83,7 +83,7 @@ class QuestionsController < ApplicationController
   # PUT /questions/1
   # PUT /questions/1.json
   def update
-    @question = Question.find(params[:id])
+    # @question = Question.find(params[:id])
 
     respond_to do |format|
       if @question.update_attributes(params[:question])

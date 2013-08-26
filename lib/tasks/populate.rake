@@ -18,7 +18,7 @@ namespace :db do
 
     puts "=== Create Users ==="
     16.times do
-      User.create email: Faker::Internet.email, password: 'password'
+      User.create email: Faker::Internet.email, password: 'password', first_name: Faker::Name.first_name, last_name: Faker::Name.last_name
     end
     puts "=== Created Users ==="
 
