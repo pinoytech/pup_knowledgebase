@@ -1,4 +1,9 @@
 /*** navbar ***/
+body {
+    padding: 0px;
+}
+
+/*** navbar ***/
 
 .navbar {
     .container{
@@ -57,6 +62,19 @@
 .footer {
     margin: {
         top: 100px;
+    }
+    padding: {
+        top: 30px;
+        bottom: 30px;
+    }
+    &.black {
+        background: {
+            color: #000000;
+        }
+        color: #FFFFFF;
+        a {
+            color: #FFFFFF;
+        }
     }
 }
 

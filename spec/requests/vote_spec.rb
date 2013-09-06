@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Questions", js: true do
 
   describe 'voting' do
-    let!(:user) {create(:user)}
+    let!(:user) {create(:user, email: 'teejay@teejay.com')}
     let!(:question) {create(:question)}
 
     it 'should update vote status' do

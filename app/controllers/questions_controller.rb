@@ -12,6 +12,12 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def delete_attachment
+    @question = Question.find(params[:id])
+    @question.attachment = nil
+    @question.save
+  end
+
   def downvote
     @question = Question.find(params[:id])
     begin

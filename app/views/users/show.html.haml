@@ -14,7 +14,8 @@
   .col-xs-12
     %h2
     .panel.panel-default
-      .panel-heading Questions
+      .panel-heading
+        %strong Questions
       .panel-body
         - if @user.questions.any?
           %p This user has been very busy indeed...
@@ -24,9 +25,11 @@
         %tr
           %th #
           %th Question
+          %th Answered?
           %th Date
         - @user.questions.each do |question|
           %tr
             %td= question.id
             %td= link_to question.title, question
+            %td= question.answered? ? 'Answered' : 'Unanswered'
             %td= question.created_at.strftime("%B %d, %Y")

@@ -3,7 +3,6 @@ require 'spec_helper'
 describe "Questions", js: true do
 
   describe 'search form' do
-    let!(:user) {create(:user)}
     let!(:question) {create(:question)}
 
     it 'should submit to search_products_path' do

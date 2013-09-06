@@ -15,6 +15,7 @@ Tshirt::Application.routes.draw do
     member do
         get 'downvote'
         get 'upvote'
+        get 'delete_attachment'
     end
   end
 

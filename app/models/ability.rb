@@ -19,6 +19,9 @@ class Ability
     can :update, User do |user_to_edit|
       user_to_edit == user
     end
+    can :delete_attachment, Question do |user|
+      question.try(:user) == user
+    end
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

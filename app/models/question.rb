@@ -14,4 +14,8 @@ class Question < ActiveRecord::Base
   scope :unanswered, where("answer IS NULL")
   scope :recent, lambda{|limit| order("id DESC").limit(limit)}
   scope :search, lambda{|keyword| where('title LIKE ? ', "%#{keyword}%")}
+
+  def answered?
+    answer.present?
+  end
 end

@@ -16,8 +16,8 @@ class User < ActiveRecord::Base
   has_many :designs
   has_many :questions
   has_attached_file :avatar, :styles => {
-    :medium => "200x200>",
-    :small => "100x100>"
+    :medium => "200x200#",
+    :small => "100x100#"
   }
 
   scope :founders, order('id ASC').limit(3)

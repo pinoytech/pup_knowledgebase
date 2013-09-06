@@ -6,7 +6,7 @@
       .form-group.col-lg-8
         =label_tag :keyword, 'Keyword', class: 'sr-only', for: 'keyword'
         =text_field_tag :keyword, params[:keyword], placeholder: 'Enter Keyword', class: "input-lg form-control"
-      =submit_tag 'Search', class: 'btn btn-default btn-lg', name: nil
+      =submit_tag 'Search', class: 'btn btn-default btn-lg', name: nil, data: { disable_with: "Please wait..." }
 
 .row.home
   .col-xs-12

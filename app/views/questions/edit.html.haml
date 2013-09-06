@@ -17,10 +17,8 @@
             = f.text_field :title, :autofocus => true, class: 'form-control', placeholder: 'Enter Question'
             = f.label :description, 'Description'
             = f.text_area :description, class: 'form-control', placeholder: 'Enter Description', rows: 5
-          - unless @question.attachment_file_name.nil?
-            .form-group
-              = f.label :attachment, 'Attachment', class: 'control-label'
-              %p.form-control-static= image_tag @question.attachment.url(:large)
+          #attachment_fieldset.form-group
+            = render 'attachment_field'
           .form-group
             = f.label :attachment
             = f.file_field :attachment, class: 'form-control'
