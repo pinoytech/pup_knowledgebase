@@ -1,0 +1,6 @@
+- unless @question.attachment_file_name.nil?
+  = f.label :attachment, 'Attachment', class: 'control-label'
+  %p
+    - if can? :delete_attachment, @question
+      =link_to 'Clear Attachment', question_delete_attachment_path(@question), class: 'btn btn-warning'
+  %p.form-control-static= image_tag @question.attachment.url(:large)
