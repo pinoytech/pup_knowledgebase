@@ -37,5 +37,10 @@
         .col-xs-12
           .answer
             =answer.body
+            .text-right
+              .row
+                .col-xs-12
+                  Answered body
+                  =link_to user_name(answer.user), answer.user
 
 
